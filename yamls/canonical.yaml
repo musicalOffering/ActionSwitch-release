@@ -1,0 +1,95 @@
+#path
+dataset: 'thumos14'
+#dataset: 'muses'
+feature_path: "/workspace/data/thumos14/thumos14_features"
+
+######EDIT#######
+state_label_path: "/workspace/data/thumos14/thumos14_4state_label"
+#################
+class_label_path: "/workspace/data/thumos14/thumos14_class_label"
+oracle_proposal_path: "/workspace/data/thumos14/thumos14_oracle_proposals.pkl"
+model_save_path: "./t_oad_model"
+annotation_path: "/workspace/data/thumos14/thumos14_v2.json"
+
+#classifier
+classifier_id: "standard"
+unit_length: 64
+max_length: 256
+a: 0.333
+a_std: 0.15
+b: 0.666
+b_std: 0.15
+foreground_ratio: 0.5
+long_instance_ratio: 0.1
+iou_threshold: 0.5
+gamma: 2.
+alpha: -1
+
+classifier_model_path: './thumos14_classifier_model/'
+classifier_feature_path: './data/thumos14/thumos14_class_features'
+classifier_epoch_iter: 16384
+classifier_equal_sampling: false
+classifier_temperature: 0.5
+classifier_save_interval: 5
+classifier_warmup_iter: 500
+classifier_final_iter: 10000
+classifier_base_lr: 0.0001
+classifier_final_lr: 0.000001
+classifier_batch_size: 64
+classifier_epoch: 1001
+feature_dim: 4096
+classifier_transformer_unit: 512
+classifier_transformer_fc_unit: 2048
+classifier_transformer_layer_num: 3
+classifier_fc_unit: 512 
+class_num: 21
+
+#name of experiment
+prefix: "main"
+
+#hard parameters
+#If you change n_state, make sure to change state_label_path too.
+n_state: 4
+n_feature: 4096
+
+device: 'cuda:0'
+
+
+
+#lstm
+use_projection: True
+n_recurrent_layer: 4
+n_classifier_layer: 2
+history_length: 48
+n_recurrent_hidden: 2048
+n_projection_hidden: 512
+recurrent_pdrop: 0.
+
+#optimizers
+oad_warmup_iter: 512
+oad_final_iter: 3072
+oad_base_lr: 0.0003
+oad_final_lr: 0.000001
+oad_weight_decay: 0.01
+oad_betas: [0.9, 0.9]
+#training setting
+epoch: 8
+num_workers: 5
+length_proportional_sampling: True
+label_augmentation: False
+dt_iteration: 16384
+dt_batch_size: 64
+eval_num: 250
+
+use_target: True
+#######EDIT#######
+aux_loss: "cross_entropy"
+tau: 0.001
+#######EDIT#######
+penalty_coef: 0.025
+cross_entropy_weight: [0.1,0.1,0.1,0.1,]
+
+
+#stat
+moving_average_range: 25
+eval_epoch: 2
