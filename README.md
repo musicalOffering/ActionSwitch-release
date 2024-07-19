@@ -1,6 +1,6 @@
 "ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos" [ECCV2024] 
 =============
-[paper]()
+[paper](https://arxiv.org/abs/2407.12987)
 
 
 Training and assessing the model
