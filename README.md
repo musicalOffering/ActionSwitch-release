@@ -1,6 +1,6 @@
 "ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos" [ECCV2024] 
 =============
-[paper](https://arxiv.org/abs/2407.12987)
+[paper](https://arxiv.org/abs/2407.12987) [Project page](https://musicaloffering.github.io/ActionSwitch-release/)
 
 
 Training and assessing the model
