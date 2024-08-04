@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Video Instance Segmentation">
+  <meta name="keywords" content="VIS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M3DQFXZBJH"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'G-M3DQFXZBJH');
+ </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos</h1>
+          <h3 class="subtitle is-3 publication-conference">ECCV 2024</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://sites.google.com/yonsei.ac.kr/hyolims">Hyolim Kang</a>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/jshyun/home/">Jeongseok Hyun</a>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/joungbinan/">Joungbin An</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://mirlab.yonsei.ac.kr/">Youngjae Yu</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/site/seonjookim/">Seon Joo Kim</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Yonsei University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2407.12987"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/musicalOffering/ActionSwitch-release"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+      <div class="hero-body">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/KF7rnYVtppE?si=zGSkus1zbMUtRLaa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Online Temporal Action Localization (On-TAL) is a critical task that aims to instantaneously identify action instances in untrimmed streaming videos as soon as an action concludes--a major leap from frame-based Online Action Detection (OAD).
+            Yet, the challenge of detecting overlapping actions is often overlooked even though it is a common scenario in streaming videos.
+            Current methods that can address concurrent actions depend heavily on class information, limiting their flexibility.
+          </p>
+          <p>
+            This paper introduces <b>"ActionSwitch"</b>, the first class-agnostic On-TAL framework capable of detecting overlapping actions.
+            By obviating the reliance on class information, ActionSwitch provides wider applicability to various situations, including overlapping actions of the same class or scenarios where class information is unavailable.
+            This approach is complemented by the proposed <b>"Conservativeness loss"</b>, which directly embeds a conservative decision-making principle into the loss function for On-TAL.
+            Our ActionSwitch achieves state-of-the-art performance in complex datasets, including Epic-Kitchens 100 targeting the challenging egocentric view and FineAction consisting of fine-grained  actions. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">ActionSwitch Framework</h2>
+          <img src="./static/images/actionswitch-teaser.png" alt="Main figure" />
+          <div class="content has-text-justified">
+          <p>
+            Overview of the ActionSwitch Framework: 
+            State label is derived from the <u>sum of the ids of activated switches</u>.
+            For example, the state is labeled as `3' between t2 and t3 when switches `1' and `2' are simultaneously active, whereas it registers as `2' from t3 to t4 when only switch `2' is active. 
+            State changes signify action instance boundaries, and our <b>"Conservativeness loss"</b> minimizes state fluctuations to improve detection accuracy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Utilization of "Finite State Machine" concept!</h2>
+        <img src="./static/images/actionswitch-main.png" alt="Main Experiments" />
+        <div class="content has-text-justified">
+          <!-- <p>
+            Comparisons on the YouTube-VIS 2019, 2021 and OVIS validation sets.
+          </p> -->
+          <!-- make above center -->
+          <p>
+            (a) State diagram of ActionSwitch framework, and
+            (b) implementation of state-emitting OAD model.
+          </p>
+          <p>
+            A possible solution to catch multiple concurrent actions would be using multiple OAD models for mutually exclusive action instance detection.
+            For instance, in a setup with two OAD models and a single action, one model should signal "no action" when the other detects the action.
+            However, this interdependence of the models' decisions makes the implementation complicated.
+          </p>
+          <p>
+            Instead, we abstract the concept into a <b>single machine</b> with multiple switches.
+            To be specific, let's think about the two-switch case.
+            The finite state machine corresponding to this machine has four states: i) no switch activated, ii) switch 1 activated, iii) switch 2 activated, and iv) both switches activated.
+            These states are illustrated in the <b>State Table</b> in (a).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Boundary frames are rare!</h2>
+          <img src="./static/images/cons_loss.png" alt="Main Experiments" />
+          <div class="content has-text-justified">
+            <p>
+              Action boundaries are typically much less frequent than non-boundary frames, which is a widely observed phenomenon in most videos. 
+              Our approach directly encodes this prior into the loss function, by simply <b>utilizing previous steps' predictions as pseudo-labels</b> and posing standard cross-entropy loss.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{actionswitch,
+      author = {Kang, Hyolim and Hyun, Jungsuk and An, Joungbin and Yu, Youngjae and Kim, Seon Joo},
+      title = {ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos},
+      booktitle={European Conference on Computer Vision (ECCV)},
+      year={2024}
+  }
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template was borrowed from the <a href="https://kimhanjung.github.io/VISAGE/">VISAGE</a> project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
